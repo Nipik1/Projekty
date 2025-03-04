@@ -5,7 +5,7 @@ import string
 users = {}
 
 def get_login():
-    print("Vítejne v naši webové aplikaci. Pro pokračování je nutné se registrovat.")
+    print("Vítejte v naši webové aplikaci. Pro pokračování je nutné se registrovat.")
     time.sleep(1)
     while True:
         username_input = input("Zadejte svůj login: ")
@@ -27,9 +27,9 @@ def Generatecode():
     cisla = string.digits
     znaky = string.punctuation
 
-    rn_abeceda = random.randint(3, 4)
-    rn_cisla = random.randint(2, 3)
-    rn_znaky = random.randint(1, 2)
+    rn_abeceda = 4
+    rn_cisla = 3
+    rn_znaky = 2
 
     heslo = []
 
@@ -68,7 +68,7 @@ def login():
     username = get_login()
 
     print("Chcete si heslo vytvořit nebo použít generátor hesel?")
-    choice = (input("zadejte 1 pro generování heslo a nebo zadejte 2 pro vlastní heslo: "))
+    choice = input("zadejte 1 pro generování heslo a nebo zadejte 2 pro vlastní heslo: ")
     if choice == "1":
         code = Generatecode()
         print(f"Vaše nové heslo je {code}")
