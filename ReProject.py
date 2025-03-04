@@ -27,8 +27,8 @@ def Generatecode():
     cisla = string.digits
     znaky = string.punctuation
 
-    rn_abeceda = random.randint(1, 4)
-    rn_cisla = random.randint(1, 3)
+    rn_abeceda = random.randint(3, 4)
+    rn_cisla = random.randint(2, 3)
     rn_znaky = random.randint(1, 2)
 
     heslo = []
