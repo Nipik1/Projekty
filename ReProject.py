@@ -5,7 +5,7 @@ import string
 users = {}
 
 def get_login():
-    print("Vítejte v naši webové aplikaci. Pro pokračování je nutné se registrovat.")
+    print("Vítejne v naši webové aplikaci. Pro pokračování je nutné se registrovat.")
     time.sleep(1)
     while True:
         username_input = input("Zadejte svůj login: ")
@@ -68,7 +68,11 @@ def login():
     username = get_login()
 
     print("Chcete si heslo vytvořit nebo použít generátor hesel?")
-    choice = input("zadejte 1 pro generování heslo a nebo zadejte 2 pro vlastní heslo: ")
+    print("=" * 35)
+    choice = (input("""
+    1. Pro generování hesla 
+    2. Pro Vlastní heslo
+    ---- Vyberte možnost:  """))
     if choice == "1":
         code = Generatecode()
         print(f"Vaše nové heslo je {code}")
@@ -82,7 +86,7 @@ def login():
 
     users[username] = code
 
-    print(f"uživatel {username} s heslem {code} byl uložen")
+    print(f"Uživatel {username} s heslem {code} byl uložen")
 
     time.sleep(1)
     print("=" * 20)
@@ -233,8 +237,57 @@ def kanp():
             kanp()
         else:
             print("Chyba, zadej Y nebo N")
+
+def geograpthygame():
+
+    question = {
+        "Jaké je hlavní město České republiky: ": "praha",
+        "Kolik je na na planetě světadílů?: ": "7",
+        "Kolik je na planetš kontinentů: ": "5",
+        "Jaký je největší stát USA?: ": "aljaška",
+        "V jakém pohoří leží Mt.Everest?: ": "himaláje",
+        "V jakém státě leží nejjižnejší cíp Evropy?: ": "španělsko",
+        "Jaké je hlavní město Španělska? ": "madrid",
+        "Je v Německu nejvíce obyvatel z EU? - ano nebo ne": "ano",
+        "Je Francie největší zemí EU? - ano nebo ne": "ano",
+        }
+    
+    list_question = list(question.keys())
+    pocet_otazek = 5
+    pokus = 0
+
+    all_question = random.sample(list_question, pocet_otazek)
+
+    for idx, i in enumerate(all_question):
+        print(f"{idx +1}, {i}")
+
+        odpoved = input("Vaše odpověď?: ").lower()
+        spravna_odpoved = question[i]
+
+        if odpoved == spravna_odpoved:
+            print("Správně")
+            pokus += 1
+
+        else:
+            print(f"Špatně, správná odpověď byla {spravna_odpoved.capitalize()}")
+    print(f"Konec hry. Tvůj vysledek je {pokus}. z 5ti")
+
+
+    while True:
+        pokracovat = input("Chcete pokračovat ve hře? Y/N: ").strip().lower()
+        if pokracovat == "n":
+            print("Děkujeme a hezký den :)")
+            main()
+        elif pokracovat == "y":
+            geograpthygame()
+        else:
+            print("Chyba, zadej Y nebo N")
+
+
+
         
-login()        
+login() 
+time.sleep(1)       
 def main():
 
     while True:
@@ -244,7 +297,8 @@ def main():
 1. Kalkulačka
 2. Hádací hra
 3. Kámen, Nůžky, Papír
-4. Konec                              
+4. Kvíz
+5. Konec                              
         """)
         print("=" * 20)
 
@@ -257,6 +311,8 @@ def main():
             elif user_choice == 3:
                 kanp()
             elif user_choice == 4:
+                geograpthygame()    
+            elif user_choice == 5:
                 print("Děkujeme a hezký den")
                 exit()
             else:
