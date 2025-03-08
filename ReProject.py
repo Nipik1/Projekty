@@ -69,10 +69,10 @@ def login():
 
     print("Chcete si heslo vytvořit nebo použít generátor hesel?")
     print("=" * 35)
-    choice = (input("""
+    choice = input("""
     1. Pro generování hesla 
     2. Pro Vlastní heslo
-    ---- Vyberte možnost:  """))
+    ---- Vyberte možnost:  """)
     if choice == "1":
         code = Generatecode()
         print(f"Vaše nové heslo je {code}")
