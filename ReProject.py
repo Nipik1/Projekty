@@ -19,7 +19,7 @@ def get_login():
         else:
             print("Děkujeme a můžete pokračovat")
             break
-    return(username_input)
+    return get_login()
 
 def Generatecode():
 
